@@ -1,0 +1,38 @@
+# Django-specific gitignore
+# Provided by: https://github.com/django/django/blob/master/.gitignore
+*.egg-info
+*.pot
+*.py[co]
+.tox/
+__pycache__
+MANIFEST
+dist/
+docs/_build/
+docs/locale/
+node_modules/
+tests/coverage_html/
+tests/.coverage
+build/
+tests/report/
+
+# Django REST framework-specific gitignore
+# Provided by: https://github.com/encode/django-rest-framework/blob/master/.gitignore
+
+*.pyc
+*.db
+*~
+.*
+
+/site/
+/htmlcov/
+/coverage/
+/build/
+/dist/
+/*.egg-info/
+/env/
+MANIFEST
+coverage.*
+
+!.gitignore
+!.travis.yml
+!.isort.cfg
