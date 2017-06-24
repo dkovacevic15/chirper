@@ -15,8 +15,9 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from posts.views import post_list
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^api/posts/', post_list),
+    url(r'^api/posts$', include('posts.urls')),
+    url(r'^api/users$', include('users.urls'))
 ]
