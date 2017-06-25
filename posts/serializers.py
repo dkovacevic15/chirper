@@ -9,4 +9,3 @@ class PostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
         fields = ('author', 'content', 'posted', 'liked_by')
-

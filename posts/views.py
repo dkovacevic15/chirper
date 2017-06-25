@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from posts.models import Post
+from django.contrib.auth.models import User
 from rest_framework import generics, permissions
 from rest_framework.response import Response
 from posts.serializers import PostSerializer
@@ -9,6 +10,9 @@ class PostList(generics.ListCreateAPIView):
     permission_classes = (permissions.IsAuthenticated,)
     queryset = Post.objects.all()
     serializer_class = PostSerializer
+
+    def perform_create(self, serializer):
+        serializer.save(author=self.request.user)
 
 class PostDetail(generics.RetrieveUpdateAPIView):
     permission_classes = (permissions.IsAuthenticated,)
