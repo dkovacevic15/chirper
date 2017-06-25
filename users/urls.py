@@ -7,4 +7,4 @@ urlpatterns = [
     url(r'^(?P<pk>\d+)/$', views.UserDetail.as_view()),
 ]
 
-# urlpatterns = format_suffix_patterns(urlpatterns)
+urlpatterns = format_suffix_patterns(urlpatterns)

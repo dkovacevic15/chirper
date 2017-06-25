@@ -3,8 +3,8 @@ from rest_framework.urlpatterns import format_suffix_patterns
 from posts import views
 
 urlpatterns = [
-    url(r'^api/posts/$', views.PostList.as_view()),
-    url(r'^api/posts/(?P<pk>\d+)/$', views.PostDetail.as_view()),
+    url(r'$^', views.post_list),
+    url(r'(?P<pk>\d+)/$', views.post_detail),
 ]
 
-# urlpatterns = format_suffix_patterns(urlpatterns)
+urlpatterns = format_suffix_patterns(urlpatterns)
