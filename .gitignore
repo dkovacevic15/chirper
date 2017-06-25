@@ -19,7 +19,7 @@ tests/report/
 # Provided by: https://github.com/encode/django-rest-framework/blob/master/.gitignore
 
 *.pyc
-*.db
+#*.db
 *~
 .*
 
@@ -38,4 +38,4 @@ coverage.*
 !.isort.cfg
 
 # Don't want to publish databases
-*.sqlite3
+#*.sqlite3
