@@ -6,7 +6,7 @@ from posts.serializers import PostSerializer
 from posts.permissions import IsOwnerOrReadOnly
 
 class PostList(generics.ListCreateAPIView):
-    permission_classes = (permissions.AllowAny,)
+    permission_classes = (permissions.IsAuthenticated,)
     queryset = Post.objects.all()
     serializer_class = PostSerializer
 

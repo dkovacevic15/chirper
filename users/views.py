@@ -4,7 +4,7 @@ from rest_framework import generics, permissions
 from users.serializers import UserSerializer
 from users.permissions import IsUserOrReadOnly
 # Create your views here.
-class UserList(generics.ListAPIView):
+class UserList(generics.ListCreateAPIView):
     permission_classes = (permissions.IsAuthenticated,)
     queryset = User.objects.all()
     serializer_class = UserSerializer

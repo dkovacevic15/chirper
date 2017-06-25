@@ -15,13 +15,17 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.core.urlresolvers import reverse_lazy
+from django.views.generic import RedirectView
 from rest_framework_jwt.views import obtain_jwt_token
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^api/posts/', include('posts.urls')),
-    url(r'^api/users/', include('users.urls')),
+    url(r'^$',RedirectView.as_view(url=reverse_lazy('api_posts'))),
+    url(r'^api/posts/', include('posts.urls'), name='api_posts'),
+    url(r'^api/users/', include('users.urls'), name='api_users'),
     url(r'^api/auth/web/', include('rest_framework.urls',namespace='rest_framework')),
     url(r'^api/auth/token/', obtain_jwt_token),
+    url(r'^web/', include('website.urls')),
 ]
