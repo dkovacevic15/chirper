@@ -11,6 +11,18 @@ class PostList(generics.ListCreateAPIView):
     serializer_class = PostSerializer
 
 class PostDetail(generics.RetrieveUpdateDestroyAPIView):
-    permission_classes = (IsOwnerOrReadOnly,)
+    permission_classes = (permissions.IsAuthenticated,)
     queryset = Post.objects.all()
     serializer_class = PostSerializer
+
+    def update(self, request, *args, **kwargs):
+        user = request.user
+        liked_by = self.get_object().liked_by
+        if user in list(liked_by.all()):
+            liked_by.remove(user)
+        else:
+            liked_by.add(user)
+        serializer = self.get_serializer(self.get_object(), {'liked_by': liked_by}, partial=True)
+        serializer.is_valid(raise_exception=True)
+        self.perform_update(serializer)
+        return Response(serializer.data)

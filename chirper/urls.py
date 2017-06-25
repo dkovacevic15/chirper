@@ -22,7 +22,7 @@ from rest_framework_jwt.views import obtain_jwt_token
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$',RedirectView.as_view(url=reverse_lazy('api_posts'))),
+    url(r'^$', RedirectView.as_view(url='/api/posts')),
     url(r'^api/posts/', include('posts.urls'), name='api_posts'),
     url(r'^api/users/', include('users.urls'), name='api_users'),
     url(r'^api/auth/web/', include('rest_framework.urls',namespace='rest_framework')),
