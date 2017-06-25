@@ -8,4 +8,4 @@ class PostSerializer(serializers.ModelSerializer):
     liked_by = serializers.SlugRelatedField(many=True, read_only=True, slug_field='username')
     class Meta:
         model = Post
-        fields = ('author', 'content', 'posted', 'liked_by')
+        fields = ('id', 'author', 'content', 'posted', 'liked_by')
