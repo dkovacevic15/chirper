@@ -7,3 +7,11 @@ class IsUserOrReadOnly(permissions.BasePermission):
             return True
         else:
             return obj == request.user or request.user.is_staff
+
+class GetOrPostOnly(permissions.BasePermission):
+
+    def has_permission(self, request, view):
+        if request.method in ['GET', 'POST']:
+            return True
+        else:
+            return False
