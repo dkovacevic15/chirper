@@ -14,3 +14,5 @@ od strane ulogovanog korisnika. Ovo je odvratna implementacija, ali je prilicno 
 situaciji bih verovatno trazio unutar POST zahteva da li je toggleLiked=True ili slicno.
 
 Ostavio sam standardni SessionAuthentication zbog lakseg testiranja.
+
+Jedan od dostupnih naloga je korisnik sa username-om "dzoni" i passwordom "nidza123"
